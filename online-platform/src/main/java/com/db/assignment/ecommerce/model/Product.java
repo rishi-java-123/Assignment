@@ -27,7 +27,7 @@ public class Product {
 
 	private Long categoryId;
 	private double minimumPrice;
-	 private int seller_id;
+	private int seller_id;
 	@OneToOne
 	@JoinColumn(name = "seller_id", updatable = false, insertable = false)
 	private User seller;
