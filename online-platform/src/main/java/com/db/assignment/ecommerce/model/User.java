@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
 	@Id
@@ -36,9 +34,15 @@ public class User {
 
 	@Column(name = "ADMIN", nullable = false)
 	private boolean isAdmin;
+	
+	
 
-	public User(String password, String firstName, String lastName, String email, boolean isAdmin) {
+	public User() {
+		super();
+	}
 
+	public User(Long userId,String password, String firstName, String lastName, String email, boolean isAdmin) {
+		this.userId = userId;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
