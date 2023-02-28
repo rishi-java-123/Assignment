@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.db.assignment.ecommerce.dtos.ProductTitleAndDescriptionResponse;
 import com.db.assignment.ecommerce.dtos.Response;
 import com.db.assignment.ecommerce.dtos.ResponseTypeEnum;
 import com.db.assignment.ecommerce.model.Product;
@@ -30,10 +31,11 @@ public class ProductController {
 		}
 
 	}
-
+	
 	@GetMapping
-	public List<Product> getAllProduct() {
-		return productService.getAllProduct();
+	public List<ProductTitleAndDescriptionResponse> getAllProductForListing() {
+		return productService.getPrductforListing();
 	}
+	
 
 }
