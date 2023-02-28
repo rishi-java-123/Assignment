@@ -15,13 +15,11 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long productId;
 
 	@Column(length = 2000)
@@ -38,6 +36,22 @@ public class Product {
 
 	@Enumerated(EnumType.STRING)
 	private Status status;
+
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Product(String title, String description, Long categoryId, double minimumPrice, Long seller_id,
+			Status status) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.categoryId = categoryId;
+		this.minimumPrice = minimumPrice;
+		this.seller_id = seller_id;
+		this.status = status;
+	}
 
 	public Status getStatus() {
 		return status;

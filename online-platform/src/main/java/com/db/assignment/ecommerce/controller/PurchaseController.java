@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.db.assignment.ecommerce.dtos.PurchaseMessageDto;
 import com.db.assignment.ecommerce.dtos.PurchaseMessageTypeEnum;
+import com.db.assignment.ecommerce.exception.ProductNotFoundException;
 import com.db.assignment.ecommerce.model.Product;
 import com.db.assignment.ecommerce.model.PurchaseInfo;
 import com.db.assignment.ecommerce.service.PurchaseService;
@@ -44,7 +45,7 @@ public class PurchaseController {
 			}
 				return validatedPurchaseReq;
 		} else {
-			throw new RuntimeException("product not found");
+			throw new ProductNotFoundException("product not found with Id  :"+id);
 		}
 	}
 
