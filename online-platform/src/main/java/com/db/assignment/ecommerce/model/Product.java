@@ -42,9 +42,10 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(String title, String description, Long categoryId, double minimumPrice, Long seller_id,
+	public Product(Long productId,String title, String description, Long categoryId, double minimumPrice, Long seller_id,
 			Status status) {
 		super();
+		this.productId=productId;
 		this.title = title;
 		this.description = description;
 		this.categoryId = categoryId;
