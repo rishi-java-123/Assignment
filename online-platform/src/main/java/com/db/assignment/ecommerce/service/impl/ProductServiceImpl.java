@@ -20,16 +20,19 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductRepository productRepository;
 
+	@Override
 	public List<Product> getAllProduct() {
 		List<Product> products = new ArrayList<>();
 		productRepository.findAll().forEach(products::add);
 		return products;
 	}
 
+	@Override
 	public Product addProduct(Product product) {
 		return productRepository.save(product);
 	}
 
+	@Override
 	public Product deleteProduct(Long id) {
 		Product productToRemove = productRepository.findById(id).orElse(null);
 
@@ -41,19 +44,20 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.save(productToRemove);
 	}
 
+	@Override
 	public void updateProduct(Product product) {
 		productRepository.save(product);
 	}
 
+	@Override
 	public Optional<Product> getProduct(Product product) {
 		return productRepository.findById(product.getProductId());
 	}
 
+	@Override
 	public List<ProductTitleAndDescriptionResponse> getPrductforListing() {
 
 		return productRepository.findTitleDescription();
 	}
-
-	
 
 }
